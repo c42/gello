@@ -12,7 +12,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect user, :event => :authentication
       session["devise.github_access_token"] = request.env["omniauth.auth"].credentials.token
     else
-      flash[:warning] = "Github authentication succeeded, but user not found or created"
+      flash[:alert] = "Github authentication succeeded, but local account creation failed!"
       redirect_to root_path
     end
   end

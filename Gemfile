@@ -13,6 +13,7 @@ gem 'omniauth-github'
 
 gem 'figaro'
 gem 'octokit'
+gem 'faraday-http-cache'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

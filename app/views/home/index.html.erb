@@ -1,0 +1,7 @@
+<%= link_to "Login", user_omniauth_authorize_path(provider: :github) %>
+
+<ul>
+	<li>Signed In: <pre><%= user_signed_in? ? current_user.inspect : "No" %></pre></li>
+	<li>Octokit User Name: <pre><%= @octokit_user_name %></pre></li>
+	<li>Octokit gello-spikes (private repo) issues: <pre><%= @octokit_issues.map {|i| "#{i.id}: #{i.title}" }.inspect %></pre></li>
+</ul>

@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Gello</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-<%= yield %>
-
-</body>
+  <head>
+    <title>Gello</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+      </div>
+    </header>
+    <div id="page-body">
+      <div class="container">
+        <div class="flash-messages">
+          <% if flash[:notice] %>
+              <div class="notices"><%= flash[:notice] %></div>
+          <% end %>
+          <% if flash[:error] %>
+              <div class="errors"><%= flash[:error] %></div>
+          <% end %>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
 </html>

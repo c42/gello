@@ -1,4 +1,5 @@
-<%= link_to "Login", user_omniauth_authorize_path(provider: :github) %>
+<%= link_to "Login", user_omniauth_authorize_path(provider: :github) unless user_signed_in? %>
+<%= link_to "Logout", destroy_user_session_path, method: :delete if user_signed_in? %>
 
 <ul>
 	<li>Signed In: <pre><%= user_signed_in? ? current_user.inspect : "No" %></pre></li>

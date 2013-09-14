@@ -1,0 +1,55 @@
+@import "compass/utilities/general/clearfix";
+@import "compass/css3/box-sizing";
+
+$border-color: #b7c7cf;
+
+#the-wall {
+  width: 100%;
+  margin: 20px 0;
+  @include clearfix;
+
+  .lane {
+    width: 24.75%;
+    border-right: 2px solid $border-color;
+    float: left;
+    &:last-child { border-right: none;}
+  }
+
+  .lane-title {
+    width: 95%;
+    margin: auto;
+    background: #E6F1F6;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .card-holder {
+    width: 95%;
+    margin: 10px auto 0;
+  }
+  
+  .card {
+    width: 95%;
+    margin: 5px 0;
+    border: 1px solid $border-color;
+    padding: 0 2%;
+    background: #F7F7F7;
+    &:first-child { margin-top: 0; }
+    &:last-child { margin-bottom: 0; }
+    @include clearfix;
+  }
+
+  .card-number {
+    margin: 5px 0;
+    a, a:visited {
+      color: #4183C4;
+      font-size: 1.5em;
+      text-decoration: none;
+    }
+  }
+  
+  .card-title {
+    margin: 5px 0;
+  }
+}

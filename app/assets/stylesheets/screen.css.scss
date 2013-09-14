@@ -5,8 +5,42 @@
 
 @import "compass/reset";
 @import "compass/css3/box-sizing";
+@import "compass/css3/border-radius";
+@import "compass/utilities/general/clearfix";
 
 body {
   font: 14px Helvetica, arial, freesans, clean, sans-serif;
   @include box-sizing(border-box);
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#internal-body {
+  header {
+    margin: 10px 0 0;
+    .header-logo {
+      float: left;
+    }
+
+    .user-avatar, .current-project {
+      float: right;
+    }
+
+    .user-avatar img {
+      width: 30px;
+      @include border-radius(4px);
+    }
+
+    .current-project {
+      font-size: 1.5em;
+      color: #4183C4;
+      font-weight: bold;
+      margin: 0.15em 10px 0;
+    }
+
+    @include clearfix;
+  }
 }

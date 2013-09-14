@@ -6,3 +6,9 @@
 	<li>Octokit User Name: <pre><%= @octokit_user_name %></pre></li>
 	<li>Octokit gello-spikes (private repo) issues: <pre><%= @octokit_issues.map {|i| "#{i.id}: #{i.title}" }.inspect %></pre></li>
 </ul>
+
+<ul>
+	<% current_user.repos(controller.github_access_token).each do |repo| %>
+		<li><%= link_to repo.name, "http://github.com/" + repo.full_name %></li>
+	<% end if user_signed_in? %>
+</ul>	

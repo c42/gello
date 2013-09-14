@@ -11,4 +11,9 @@ class User < ActiveRecord::Base
     record = where(provider: auth.provider, uid: auth.uid.to_s).first
     record || create(provider: auth.provider, uid: auth.uid, email: auth.info.email)
   end
+  
+  def repos(github_access_token)
+    client = Octokit::Client.new(access_token: github_access_token)
+    client.user.rels[:repos].get.data || []
+  end
 end

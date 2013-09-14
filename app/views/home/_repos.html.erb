@@ -1,0 +1,5 @@
+<ul class='repos'>
+<% repos.each do |repo| %>
+	<li><%= repo.name %> <%= "| Private" if repo.private %><%= "| Has Issues" if repo.has_issues %></li>
+<% end %>
+</ul>

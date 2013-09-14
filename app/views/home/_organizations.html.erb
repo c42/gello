@@ -1,0 +1,8 @@
+<ul class='organizations'>
+<% organizations.each do |organization| %>
+	<li>
+		<div class='organization-login'><%= organization.login %></div>
+		<%= render partial: 'repos', locals: { repos: organization.repos_with_issues } %>
+	</li>
+<% end %>
+</ul>

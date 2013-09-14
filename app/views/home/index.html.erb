@@ -2,11 +2,10 @@
 	<%= link_to "Logout #{current_user.github_login}", destroy_user_session_path, method: :delete %>
 	<%= image_tag current_user.github_avatar_url, alt: "avatar" %>
 	
-	<ul>
-		<% @repos.each do |repo| %>
-			<li><%= link_to repo.name, "http://github.com/" + repo.full_name %></li>
-		<% end %>
-	</ul>
+	<p>My Repos</p>
+	<%= render partial: 'repos', locals: { repos: @repos } %>
+	<p>Organization Repos</p>
+	<%= render partial: 'organizations', locals: { organizations: @organizations } %>
 <% else %>
 <%= link_to "Login", user_omniauth_authorize_path(provider: :github) unless user_signed_in? %>
 <% end %>

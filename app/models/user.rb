@@ -7,8 +7,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,
                   :provider, :uid, :name, :github_login, :github_avatar_url
 
-  attr_accessor :access_token
-
   def self.find_or_create_from_oauth(auth)
     record = where(provider: auth.provider, uid: auth.uid.to_s).first
     record ||= create(provider: auth.provider, uid: auth.uid, email: auth.info.email,
@@ -17,24 +15,20 @@ class User < ActiveRecord::Base
       r.update_attributes(name: auth.info.name,
                     github_login: auth.info.nickname,
                     github_avatar_url: auth.info.image)
-      p r.errors.inspect
     end
   end
-
+  
   def repos
-    octokit_user.rels[:repos].get.data || []
+    octokit_client.paginate(octokit_user.rels[:repos].href)
+  end
+  
+  def organizations
+    octokit_client.paginate(octokit_user.rels[:organizations].href).map {|o| Organization.new(o, access_token) }
   end
 
   def avatar_url
     octokit_user.rels[:avatar].href
   end
-
-  private
-  def octokit_client
-    Octokit::Client.new(access_token: access_token)
-  end
-
-  def octokit_user
-    octokit_client.user
-  end
+  
+  include OctokitHelpers
 end

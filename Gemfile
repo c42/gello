@@ -36,3 +36,11 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+gem 'figaro'
+gem 'thin', group: [:development]
+gem 'json'
+gem 'rspec-rails', group: [:development, :test]
+
+gem 'octokit'
+gem 'omniauth-github'
+gem 'devise'

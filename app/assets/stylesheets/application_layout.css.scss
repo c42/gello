@@ -1,3 +1,6 @@
+@import "compass/css3/border-radius";
+@import "compass/utilities/general/clearfix";
+
 #application-layout {
   .container {
     width: 90%;
@@ -6,5 +9,26 @@
 
   header {
     margin: 10px 0 0;
+    .header-logo {
+      float: left;
+    }
+
+    .user-avatar, .current-project {
+      float: right;
+    }
+
+    .user-avatar img {
+      width: 30px;
+      @include border-radius(4px);
+    }
+
+    .current-project {
+      font-size: 1.5em;
+      color: #4183C4;
+      font-weight: bold;
+      margin: 0.15em 10px 0;
+    }
+
+    @include clearfix;
   }
 }

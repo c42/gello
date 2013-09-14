@@ -3,7 +3,7 @@ Gello::Application.routes.draw do
 
   root :to => "home#index"
 
-  get ":handle/:repository" => "project#index"
+  get ":handle/:repository" => "projects#show"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -32,13 +32,13 @@ GEM
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
     builder (3.0.4)
-    coffee-rails (3.2.2)
-      coffee-script (>= 2.2.0)
-      railties (~> 3.2.0)
-    coffee-script (2.2.0)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.6.3)
+    chunky_png (1.2.8)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
     daemons (1.1.9)
     devise (3.1.0)
       bcrypt-ruby (~> 3.0)
@@ -55,6 +55,7 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    fssm (0.2.10)
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
@@ -164,7 +165,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  coffee-rails (~> 3.2.1)
+  compass-rails
   devise
   figaro
   jquery-rails

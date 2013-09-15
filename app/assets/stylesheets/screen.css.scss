@@ -1,12 +1,9 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
 @import "compass/reset";
 @import "compass/css3/box-sizing";
 @import "compass/css3/border-radius";
 @import "compass/utilities/general/clearfix";
+@import "compass/css3/text-shadow";
+@import "compass/css3/images";
 
 body {
   font: 14px Helvetica, arial, freesans, clean, sans-serif;
@@ -25,7 +22,7 @@ body {
       float: left;
     }
 
-    .user-avatar, .current-project {
+    .user-avatar, .current-project, .login-link-container {
       float: right;
     }
 
@@ -41,6 +38,21 @@ body {
       margin: 0.15em 10px 0;
     }
 
+    .login-link {
+      position: relative;
+      display: inline-block;
+      padding: 5px 15px;
+      font-weight: bold;
+      color: #333;
+      @include text-shadow(0 1px 0 rgba(255,255,255,0.9));
+      @include background-image(linear-gradient(top, #fafafa, #eaeaea));
+      @include border-radius(5px);
+      border: 1px solid #ddd;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
     @include clearfix;
   }
+
 }

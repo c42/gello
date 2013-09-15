@@ -1,0 +1,13 @@
+<div class="lane <%= lane_class -%>">
+  <div class="lane-title"><%= lane_heading -%></div>
+  <ul class="card-holder">
+    <% cards.each do |card| %>
+      <li class="card">
+        <div class="card-number">
+          <%= link_to "##{card.github_number}", "https://github.com/#{project.github_path}/issues/#{card.github_number}" %>
+        </div>
+        <div class="card-title"><%= card.title %></div>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -1,1 +1,18 @@
-Issue count = <%= @project.cards.count %>
+<div id="the-wall">
+  <%= render partial: "lane", locals: {lane_class: "unsorted",
+      lane_heading: "Unsorted", project: @project,
+      cards: @project.unsorted_cards} %>
+
+  <%= render partial: "lane", locals: {lane_class: "ready-for-dev",
+      lane_heading: "Ready for Dev", project: @project,
+      cards: @project.ready_for_dev_cards} %>
+
+  <%= render partial: "lane", locals: {lane_class: "in-progress",
+      lane_heading: "In Progress", project: @project,
+      cards: @project.in_progress_cards} %>
+
+  <%= render partial: "lane", locals: {lane_class: "finished",
+      lane_heading: "Finished", project: @project,
+      cards: @project.finished_cards} %>
+
+</div>

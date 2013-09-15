@@ -3,6 +3,22 @@ class Project < ActiveRecord::Base
 
   attr_accessible :handle, :repository, :github_path
 
+  def unsorted_cards
+    cards.shuffle[0..rand(10)]
+  end
+
+  def ready_for_dev_cards
+    cards.shuffle[0..rand(10)]
+  end
+
+  def in_progress_cards
+    cards.shuffle[0..rand(10)]
+  end
+
+  def finished_cards
+    cards.shuffle[0..rand(10)]
+  end
+
   def self.find_or_fetch(handle, name, options = {})
     project = where(handle: handle, repository: name).first
     return project unless project.nil?

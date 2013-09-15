@@ -35,6 +35,7 @@ Gello.Wall.prototype = {
 				var card = $(event.toElement).closest('.card');								
 				var targetLaneElement = $(this);
 				var cardId = card.attr('id');
+				var cardPath = '/cards/' + cardId.toString()
 				var targetLane = '';
 				
 				card.draggable("destroy");
@@ -50,6 +51,10 @@ Gello.Wall.prototype = {
 				console.log(cardId);
 				console.log(targetLaneElement);
 				console.log(targetLane);
+				$.post({
+					url: cardPath,
+					lane: targetLane
+				});
 			}
 		});
 			

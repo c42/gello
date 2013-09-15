@@ -1,6 +1,7 @@
 Gello::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-
+  post "cards/:id" => "cards#update"
+  
   root :to => "home#index"
 
   get ":handle/:repository" => "projects#show"

@@ -1,5 +1,10 @@
 <ul class='repos'>
-<% repos.each do |repo| %>
-	<li><%= repo.name %> <%= "| Private" if repo.private %><%= "| Has Issues" if repo.has_issues %></li>
-<% end %>
+  <% repos.each do |repo| %>
+    <li class="repository">
+      <div class="name">
+        <%= link_to repo.full_name, show_project_path(handle: repo.owner.login, repository: repo.name), class: "name-link" %>
+      </div>
+      <div class="issue-count">Number of open issues to manage <%= repo.open_issues_count%></div>
+    </li>
+  <% end %>
 </ul>

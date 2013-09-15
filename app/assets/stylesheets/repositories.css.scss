@@ -1,0 +1,32 @@
+@import "compass/utilities/general/clearfix";
+
+#user-repositories {
+  width: 95%;
+  margin: 20px auto;
+  .title {
+    background: #E6F1F6;
+    font-size: 1.5em;
+    padding: 10px;
+  }
+
+  .repository {
+    margin: 5px;
+    border-bottom: 1px solid #b7c7cf;
+    padding: 7px;
+    @include clearfix;
+    .name-link, .issue-count {float: left;}
+    .name-link, .name-link:visited {
+      font-size: 1.5em;
+      color: #4183C4;
+      text-decoration: none;
+    }
+    .issue-count {
+      font-size: 1.2em;
+      color: #777777;
+      margin: 2px 10px;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

@@ -1,4 +1,10 @@
-<p>My Repos</p>
-<%= render partial: 'repos', locals: { repos: @repos } %>
-<p>Organization Repos</p>
-<%= render partial: 'organizations', locals: { organizations: @organizations } %>
+<div id="user-repositories">
+  <div class="repositories-list managed">
+    <div class="title">Managed</div>
+    <%= render partial: 'repos', locals: { repos: @managed } %>
+  </div>
+  <div class="repositories-list managed">
+    <div class="title">Unmanaged</div>
+    <%= render partial: 'repos', locals: { repos: @unmanaged } %>
+  </div>
+</div>

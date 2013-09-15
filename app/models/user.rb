@@ -26,6 +26,13 @@ class User < ActiveRecord::Base
     octokit_client.paginate(octokit_user.rels[:organizations].href).map {|o| Organization.new(o, access_token) }
   end
 
+  def all_repos_with_issues
+    user_repos = repos_with_issues
+    organizations.inject(user_repos) do |collection, organization|
+      collection + organization.repos_with_issues
+    end
+  end
+
   def avatar_url
     octokit_user.rels[:avatar].href
   end

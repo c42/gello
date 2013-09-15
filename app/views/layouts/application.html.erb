@@ -19,17 +19,7 @@
       </div>
     </header>
     <div id="page-body">
-      <div class="container">
-        <div class="flash-messages">
-          <% if flash[:notice] %>
-              <div class="notices"><%= flash[:notice] %></div>
-          <% end %>
-          <% if flash[:error] %>
-              <div class="errors"><%= flash[:error] %></div>
-          <% end %>
-        </div>
-        <%= yield %>
-      </div>
+      <%= yield %>
     </div>
   </body>
 </html>

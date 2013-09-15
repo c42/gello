@@ -1,0 +1,41 @@
+@import "compass/css3/box-sizing";
+@import "compass/css3/border-radius";
+@import "compass/utilities/general/clearfix";
+@import "compass/css3/text-shadow";
+@import "compass/css3/images";
+
+#landing {
+  margin: 15px 0;
+  width: 100%;
+  background: #999 url(background.jpg) 0 0 repeat;
+  height: 500px;
+  position: relative;
+  .message {
+    position: absolute;
+    color: white;
+    font-size: 40px;
+    top: 200px;
+    text-align: center;
+    width: 100%;
+  }
+  .login-link-container {
+    position: absolute;
+    top: 300px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .login-link {
+    position: relative;
+    display: inline-block;
+    padding: 15px 25px;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #333;
+    @include text-shadow(0 1px 0 rgba(255,255,255,0.9));
+    @include background-image(linear-gradient(top, #89DC6C, #62B246));
+    @include border-radius(10px);
+    cursor: pointer;
+    text-decoration: none;
+  }
+}

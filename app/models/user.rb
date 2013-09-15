@@ -17,11 +17,11 @@ class User < ActiveRecord::Base
                     github_avatar_url: auth.info.image)
     end
   end
-  
+
   def repos
     octokit_client.paginate(octokit_user.rels[:repos].href)
   end
-  
+
   def organizations
     octokit_client.paginate(octokit_user.rels[:organizations].href).map {|o| Organization.new(o, access_token) }
   end
@@ -29,6 +29,6 @@ class User < ActiveRecord::Base
   def avatar_url
     octokit_user.rels[:avatar].href
   end
-  
+
   include OctokitHelpers
 end

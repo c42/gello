@@ -15,7 +15,7 @@ body {
   margin: 0 auto;
 }
 
-#internal-body {
+#internal-body, #landing-body {
   header {
     margin: 10px 0 0;
     .header-logo {
@@ -54,5 +54,15 @@ body {
 
     @include clearfix;
   }
+}
 
+#landing-body {
+  .right-pane {
+    font-size: 2em;
+    color: #7B91D3;
+    margin: 0 10px;
+    float: right;
+    font-weight: bold;
+    @include text-shadow(0 1px 0 rgba(10,10,10,0.5));
+  }
 }

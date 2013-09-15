@@ -11,8 +11,8 @@
       lane_heading: "In Progress", project: @project,
       cards: @project.in_progress_cards} %>
 
-  <%= render partial: "lane", locals: {lane_class: "finished",
-      lane_heading: "Finished", project: @project,
+  <%= render partial: "lane", locals: {lane_class: "complete",
+      lane_heading: "Complete", project: @project,
       cards: @project.finished_cards} %>
 
 </div>

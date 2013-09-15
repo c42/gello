@@ -17,11 +17,22 @@ class DalliAdapter
   def method_missing(name, *args, &block)
     dalli_client.send name, *args, &block
   end
+
+  def self.build
+    password = ENV["MEMCACHIER_PASSWORD"]
+    servers = ENV["MEMCACHIER_SERVERS"]
+    username = ENV["MEMCACHIER_USERNAME"]
+    if servers.blank?
+      DalliAdapter.new(Dalli::Client.new)
+    else
+      DalliAdapter.new(Dalli::Client.new(servers, {:username => username, :password => password}))
+    end
+  end
 end
 
 Octokit.middleware = Faraday::Builder.new do |builder|
   builder.response :logger if Rails.env.development?
-  builder.use Faraday::HttpCache, DalliAdapter.new(Dalli::Client.new)
+  builder.use Faraday::HttpCache, DalliAdapter.build
   builder.use Octokit::Response::RaiseError
   builder.adapter Faraday.default_adapter
 end

@@ -5,22 +5,39 @@
 @import "compass/css3/images";
 
 #landing {
-  margin: 15px 0;
+  margin: 8px 0;
   width: 100%;
   background: #999 url(background.jpg) 0 0 repeat;
   height: 500px;
   position: relative;
-  .message {
+  .product-name, .product-tagline, .product-description {
     position: absolute;
-    color: white;
-    font-size: 40px;
-    top: 200px;
     text-align: center;
     width: 100%;
   }
+
+  .product-name {
+    color: #A8B7FC;
+    @include text-shadow(1px 2px 2px #7A85B9);
+    font-size: 6em;
+    top: 80px;
+  }
+
+  .product-tagline {
+    color: white;
+    font-size: 3em;
+    top: 200px;
+  }
+
+  .product-description {
+    color: #AEC7EC;
+    top:250px;
+    font-size: 2em;
+  }
+  
   .login-link-container {
     position: absolute;
-    top: 300px;
+    top: 340px;
     width: 100%;
     text-align: center;
   }

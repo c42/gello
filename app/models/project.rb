@@ -4,19 +4,19 @@ class Project < ActiveRecord::Base
   attr_accessible :handle, :repository, :github_path
 
   def unsorted_cards
-    cards.shuffle[0..rand(10)]
+    cards.where(lane: Card::UNSORTED)
   end
 
   def ready_for_dev_cards
-    cards.shuffle[0..rand(10)]
+    cards.where(lane: Card::READY_FOR_DEV)
   end
 
   def in_progress_cards
-    cards.shuffle[0..rand(10)]
+    cards.where(lane: Card::IN_PROGRESS)
   end
 
   def finished_cards
-    cards.shuffle[0..rand(10)]
+    cards.where(lane: Card::COMPLETED)
   end
 
   def self.find_or_fetch(handle, name, options = {})

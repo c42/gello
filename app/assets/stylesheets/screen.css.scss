@@ -52,6 +52,11 @@ body {
       text-decoration: none;
     }
 
+    .logout-link {
+      float: right;
+      width: 30px;
+      img { max-width: 100%; }
+    }
     @include clearfix;
   }
 }
